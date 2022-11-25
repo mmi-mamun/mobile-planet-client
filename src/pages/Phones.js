@@ -1,18 +1,28 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PhoneCard from '../components/PhoneCard';
 
 const Phones = () => {
-    const [phones, setPhones] = useState([]);
     const { id } = useParams();
     console.log(id);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/allPhones')
-            .then(res => res.json())
-            // .then(data => console.log(data))
-            .then(data => setPhones(data))
-    }, [])
+    // const [phones, setPhones] = useState([]);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/allPhones')
+    //         .then(res => res.json())
+    //         // .then(data => console.log(data))
+    //         .then(data => setPhones(data))
+    // }, [])
+
+    const { data: phones = [] } = useQuery({
+        queryKey: ['phones'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/allPhones');
+            const data = await res.json();
+            return data;
+        }
+    })
 
     const filteredFeatured = phones.filter((phone) => phone.category === 'feature-phone')
     const filteredSmartphone = phones.filter((phone) => phone.category === 'smartphone')

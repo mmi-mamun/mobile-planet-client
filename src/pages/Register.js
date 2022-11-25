@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 
@@ -8,6 +8,7 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [signUpError, setSignUpError] = useState('');
     const { createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = data => {
         console.log(data.name);
@@ -24,7 +25,10 @@ const Register = () => {
                     role: data.role
                 }
                 updateUser(userInfo)
-                    .then(() => { console.log(userInfo) })
+                    .then(() => {
+                        // console.log(userInfo);
+                        navigate('/');
+                    })
                     .catch(error => { console.error(error) })
 
             })
@@ -42,7 +46,7 @@ const Register = () => {
 
 
                     <div className="form-control w-full max-w-xs mx-auto">
-                        <label className="label"> <span className="label-text">Email</span> </label>
+                        <label className="label"> <span className="label-text">Name</span> </label>
                         <input {...register("name", { required: "Name is required" })} placeholder="Your Name" type="text" className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                     </div>
