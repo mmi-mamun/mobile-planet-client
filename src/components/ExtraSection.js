@@ -4,25 +4,30 @@ const ExtraSection = () => {
     return (
         <div>
             <div className="chat chat-start">
-                <div className="chat-bubble chat-bubble-secondary">What kind of nonsense is this</div>
+                <div className="chat-bubble chat-bubble-secondary">Hi, I need some information.</div>
+            </div>
+            <div className="chat chat-end">
+                <div className="chat-bubble chat-bubble-info">Yeah, sure</div>
+            </div>
+            <div className="chat chat-end">
+                <div className="chat-bubble chat-bubble-info">How can i help you?</div>
             </div>
             <div className="chat chat-start">
-                <div className="chat-bubble chat-bubble-secondary">Put me on the Council and not make me a Master!??</div>
+                <div className="chat-bubble chat-bubble-accent">Are these products at a fixed price?</div>
             </div>
             <div className="chat chat-start">
-                <div className="chat-bubble chat-bubble-accent">That's never been done in the history of the Jedi. It's insulting!</div>
+                <div className="chat-bubble chat-bubble-secondary">Can we get a replacement warranty for second-hand mobiles?!??</div>
+            </div>
+
+
+            <div className="chat chat-end">
+                <div className="chat-bubble chat-bubble-success">Yes, all products have fixed prices.</div>
             </div>
             <div className="chat chat-end">
-                <div className="chat-bubble chat-bubble-info">Calm down, Anakin.</div>
+                <div className="chat-bubble chat-bubble-warning">We provide always good products.</div>
             </div>
             <div className="chat chat-end">
-                <div className="chat-bubble chat-bubble-success">You have been given a great honor.</div>
-            </div>
-            <div className="chat chat-end">
-                <div className="chat-bubble chat-bubble-warning">To be on the Council at your age.</div>
-            </div>
-            <div className="chat chat-end">
-                <div className="chat-bubble chat-bubble-error">It's never happened before.</div>
+                <div className="chat-bubble chat-bubble-error">We give a replacement warranty for 7 days.</div>
             </div>
         </div>
     );

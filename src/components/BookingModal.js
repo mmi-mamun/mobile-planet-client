@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const BookingModal = ({ filPhn }) => {
+    const { user } = useContext(AuthContext);
     const { deviceName, sellerName, img, resalePrice, originalPrice, yearsOfUse, postedDate } = filPhn;
     return (
         <>
@@ -10,7 +12,7 @@ const BookingModal = ({ filPhn }) => {
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{deviceName}</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <p className="py-4">{user?.email}</p>
                 </div>
             </div>
         </>

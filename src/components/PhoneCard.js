@@ -17,7 +17,7 @@ const PhoneCard = ({ filPhn }) => {
                 <div className="card-actions justify-end">
                     {/* <button className="btn btn-ghost">Book Now</button> */}
                     {/* The button to open modal */}
-                    <label htmlFor="booking-modal" className="btn btn btn-ghost">Book Now</label>
+                    <label htmlFor="booking-modal" className="btn btn-ghost">Book Now</label>
                 </div>
                 <BookingModal filPhn={filPhn}></BookingModal>
             </div>
