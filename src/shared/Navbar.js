@@ -12,13 +12,15 @@ const Navbar = () => {
     }
     const menuItems = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/dashboard'>Dashboard</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         {
             user?.uid ?
-                <><li><Link to='/signup'>Sign up</Link></li>
-                    <li><Link to='/login'>Login</Link></li></>
-                : <li><button onClick={handleLogout}>Sign out</button></li>
+                <li><button onClick={handleLogout}>Sign out</button></li> :
+                <>
+                    <li><Link to='/register'>Sign up</Link></li>
+                    <li><Link to='/login'>Login</Link></li>
+                </>
 
         }
 
@@ -42,7 +44,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <Link to='/' className="btn">
+                    {user?.uid ? <p>{user.displayName}</p> : <p>Unregistered User</p>}
+                </Link>
             </div>
         </div>
     );
