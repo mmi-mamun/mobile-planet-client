@@ -14,7 +14,7 @@ const PhoneCard = ({ filPhn }) => {
                 <p>Posted Date: {postedDate}</p>
 
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Book Now</button>
+                    <button className="btn btn-ghost">Book Now</button>
                 </div>
             </div>
         </div>
