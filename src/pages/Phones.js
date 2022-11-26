@@ -7,6 +7,15 @@ const Phones = () => {
     const { id } = useParams();
     // console.log(id);
 
+    const [filteredPhones, setFilteredPhones] = useState([]);
+    useEffect(() => {
+        fetch(`http://localhost:5000/category/${id}`)
+            .then(res => res.json())
+            .then(data => setFilteredPhones(data))
+    }, [id])
+
+    console.log(filteredPhones);
+
     // const [phones, setPhones] = useState([]);
     // useEffect(() => {
     //     fetch('http://localhost:5000/allPhones')
@@ -15,24 +24,24 @@ const Phones = () => {
     //         .then(data => setPhones(data))
     // }, [])
 
-    const { data: phones = [] } = useQuery({
-        queryKey: ['phones'],
-        queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allPhones');
-            const data = await res.json();
-            return data;
-        }
-    })
+    // const { data: phones = [] } = useQuery({
+    //     queryKey: ['phones'],
+    //     queryFn: async () => {
+    //         const res = await fetch('http://localhost:5000/allPhones');
+    //         const data = await res.json();
+    //         return data;
+    //     }
+    // })
 
-    const filteredFeatured = phones.filter((phone) => phone.category === 'feature-phone')
-    const filteredSmartphone = phones.filter((phone) => phone.category === 'smartphone')
-    const filteredTablet = phones.filter((phone) => phone.category === 'tablet')
+    // const filteredFeatured = phones.filter((phone) => phone.category === 'feature-phone')
+    // const filteredSmartphone = phones.filter((phone) => phone.category === 'smartphone')
+    // const filteredTablet = phones.filter((phone) => phone.category === 'tablet')
 
     return (
         <div>
             {/* <h1 className="text-5xl">{phones.length}</h1>
             <h1 className="text-5xl">{id}</h1> */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5'>
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5'>
 
                 {
                     id === 'feature-phone'
@@ -57,7 +66,14 @@ const Phones = () => {
                     && filteredTablet.map((filPhn, idx) => <PhoneCard key={idx} filPhn={filPhn}></PhoneCard>)
 
                 }
+            </div> */}
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-5'>
+                {
+                    filteredPhones.map(phone => <PhoneCard key={phone.customID} phone={phone} ></PhoneCard>)
+                }
             </div>
+
 
         </div>
     );

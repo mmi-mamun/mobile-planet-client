@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import BookingModal from './BookingModal';
 
-const PhoneCard = ({ filPhn }) => {
-    const { deviceName, sellerName, img, resalePrice, originalPrice, yearsOfUse, postedDate } = filPhn;
+const PhoneCard = ({ phone }) => {
+    const { deviceName, sellerName, img, resalePrice, originalPrice, yearsOfUse, postedDate } = phone;
     const [bookPhone, setBookPhone] = useState({})
     // console.log(bookPhone)
     return (
@@ -19,7 +19,7 @@ const PhoneCard = ({ filPhn }) => {
                 <div className="card-actions justify-end">
                     {/* <button className="btn btn-ghost">Book Now</button> */}
                     {/* The button to open modal */}
-                    <label onClick={() => setBookPhone(filPhn)} htmlFor="booking-modal" className="btn btn-ghost">Book Now</label>
+                    <label onClick={() => setBookPhone(phone)} htmlFor="booking-modal" className="btn btn-ghost">Book Now</label>
                 </div>
                 {bookPhone && <BookingModal setBookPhone={setBookPhone} bookPhone={bookPhone}></BookingModal>}
             </div>

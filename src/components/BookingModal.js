@@ -47,6 +47,7 @@ const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
             })
 
     }
+
     return (
         <>
             {/* Put this part before </body> tag */}
@@ -98,10 +99,10 @@ const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
                             </label>
                             <input name='location' type="text" placeholder="Location" className="input input-bordered w-full max-w-xs" />
                         </div>
+                        <br />
+                        <input className='cursor-pointer w-full bg-accent p-3 rounded-xl' type="submit" value="Submit" />
                     </form>
 
-                    <br />
-                    <input className='w-full bg-accent p-3 rounded-xl' type="submit" value="Submit" />
 
                 </div>
             </div>
