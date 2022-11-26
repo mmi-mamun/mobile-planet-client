@@ -3,8 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
-    console.log('ok')
-    // console.log(bookPhone)
+
     const { user } = useContext(AuthContext);
     const { deviceName, sellerName, img, resalePrice, originalPrice, yearsOfUse, postedDate } = bookPhone;
     // console.log(bookPhone);
@@ -25,7 +24,7 @@ const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
             Name: name,
             Email: email,
             Device: itemName,
-            Price: price,
+            Price: price + ' Taka',
             Contact: contactNumber,
             Location: location
         }
@@ -42,8 +41,11 @@ const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                // setBookPhone(null);
-                toast.success('Booking confirmed')
+                if (data.acknowledged) {
+                    toast.success('Booking confirmed')
+                    setBookPhone(null);
+
+                }
             })
 
     }

@@ -14,8 +14,6 @@ const Phones = () => {
             .then(data => setFilteredPhones(data))
     }, [id])
 
-    console.log(filteredPhones);
-
     // const [phones, setPhones] = useState([]);
     // useEffect(() => {
     //     fetch('http://localhost:5000/allPhones')
