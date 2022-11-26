@@ -5,7 +5,7 @@ import PhoneCard from '../components/PhoneCard';
 
 const Phones = () => {
     const { id } = useParams();
-    console.log(id);
+    // console.log(id);
 
     // const [phones, setPhones] = useState([]);
     // useEffect(() => {

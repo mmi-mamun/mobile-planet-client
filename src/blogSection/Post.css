@@ -1,0 +1,18 @@
+.blog-text {
+    padding: 15px;
+    border: 1px solid olive;
+    border-radius: 10px;
+    margin: 10px 10%;
+}
+
+.postImg {
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    border-radius: 5%;
+}
+
+.txt {
+    padding: 5px 10%;
+    text-align: justify;
+}

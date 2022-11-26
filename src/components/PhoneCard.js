@@ -4,7 +4,7 @@ import BookingModal from './BookingModal';
 const PhoneCard = ({ filPhn }) => {
     const { deviceName, sellerName, img, resalePrice, originalPrice, yearsOfUse, postedDate } = filPhn;
     const [bookPhone, setBookPhone] = useState({})
-    console.log(bookPhone)
+    // console.log(bookPhone)
     return (
         <div className="card card-side bg-base-100 shadow-xl mx-auto">
             <figure><img className='rounded-lg' src={img} alt="Mobile" /></figure>
