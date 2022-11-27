@@ -11,6 +11,7 @@ import AllAdmin from "../storage/AllAdmin";
 import AllBuyers from "../storage/AllBuyers";
 import AllSellers from "../storage/AllSellers";
 import AllUsers from "../storage/AllUsers";
+import ManageProducts from "../storage/ManageProducts";
 import MyOrders from "../storage/MyOrders";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/addProduct',
                 element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
+            },
+            {
+                path: '/dashboard/my-products',
+                element: <AdminRoute><ManageProducts></ManageProducts></AdminRoute>
             }
         ]
     }
