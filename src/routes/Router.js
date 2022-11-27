@@ -9,6 +9,7 @@ import Phones from "../pages/Phones";
 import Register from "../pages/Register";
 import AllUsers from "../storage/AllUsers";
 import MyOrders from "../storage/MyOrders";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -48,7 +49,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/users',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
         ]
     }
