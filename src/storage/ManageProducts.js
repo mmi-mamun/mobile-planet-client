@@ -1,20 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import ConfirmationModal from '../components/ConfirmationModal';
 import LoadSpinner from '../components/LoadSpinner';
 
 const ManageProducts = () => {
     const [deletingProduct, setDeletingProduct] = useState(null);
 
-    const closeModal = () => {
-        setDeletingProduct(null);
-    }
 
-    const handleDeleteProduct = (product) => {
-        console.log(product);
-    }
 
-    const { data: products, isLoading } = useQuery({
+    const { data: products, isLoading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
             try {
@@ -35,6 +30,29 @@ const ManageProducts = () => {
 
     if (isLoading) {
         return <LoadSpinner></LoadSpinner>
+    }
+
+
+    const closeModal = () => {
+        setDeletingProduct(null);
+    }
+
+    const handleDeleteProduct = (product) => {
+        // console.log(product);
+        fetch(`http://localhost:5000/products/${product._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    toast.success(`${product.deviceName} is successfully removed...`)
+                    refetch();
+                }
+            })
     }
 
     return (
@@ -102,6 +120,7 @@ const ManageProducts = () => {
                     closeModal={closeModal}
                     successAction={handleDeleteProduct}
                     modalData={deletingProduct}
+                    successButtonName="Delete"
                 ></ConfirmationModal>
             }
         </div>
