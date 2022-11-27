@@ -22,7 +22,7 @@ const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
 
         const booking = {
             Name: name,
-            Email: email,
+            email: email,
             Device: itemName,
             Price: price + ' Taka',
             Contact: contactNumber,

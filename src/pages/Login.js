@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import { GoogleAuthProvider } from "firebase/auth";
+import useToken from '../hooks/useToken';
 
 const provider = new GoogleAuthProvider();
 
@@ -12,8 +13,16 @@ const Login = () => {
     const { customLogin, providerLogin } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
 
-    const location = useLocation();
     const navigate = useNavigate();
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
+    if (token) {
+        navigate('/');
+    }
+
+    const location = useLocation();
+    // const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
 
@@ -33,7 +42,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true })
+                // navigate(from, { replace: true })
+                setCreatedUserEmail(data.email);
             })
             .catch(error => {
                 console.error(error.message);
