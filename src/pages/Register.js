@@ -27,7 +27,7 @@ const Register = () => {
                 updateUser(userInfo)
                     .then(() => {
                         // console.log(userInfo);
-                        navigate('/');
+                        saveUserToDatabase(data.name, data.email, data.role);
                     })
                     .catch(error => { console.error(error) })
 
@@ -35,6 +35,33 @@ const Register = () => {
             .catch(error => {
                 console.error(error);
                 setSignUpError(error.message)
+            })
+    }
+
+    const saveUserToDatabase = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                getUserToken(email)
+            })
+    }
+    // jwt 
+    const getUserToken = email => {
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.accessToken) {
+                    localStorage.setItem('accessToken', data.accessToken);
+                    navigate('/');
+                }
             })
     }
     return (
