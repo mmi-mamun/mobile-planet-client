@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Phones from "../pages/Phones";
 import Register from "../pages/Register";
+import AllUsers from "../storage/AllUsers";
 import MyOrders from "../storage/MyOrders";
 import PrivateRoute from "./PrivateRoute";
 
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/users',
+                element: <AllUsers></AllUsers>
             }
         ]
     }

@@ -17,14 +17,15 @@ const Login = () => {
     const [createdUserEmail, setCreatedUserEmail] = useState('');
     const [token] = useToken(createdUserEmail);
 
-    if (token) {
-        navigate('/');
-    }
 
     const location = useLocation();
     // const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
+    if (token) {
+        // navigate('/');
+        navigate(from, { replace: true })
+    }
 
     const handleGoogleLogin = () => {
         providerLogin(provider)
@@ -42,7 +43,6 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // navigate(from, { replace: true })
                 setCreatedUserEmail(data.email);
             })
             .catch(error => {
