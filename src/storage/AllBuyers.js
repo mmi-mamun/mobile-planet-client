@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 const AllBuyers = () => {
     const [buyers, setBuyers] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/users/Buyer`)
+        fetch(`https://used-phone-project-server.vercel.app/users/Buyer`)
             .then(res => res.json())
             .then(data => setBuyers(data))
     }, [buyers])
@@ -14,7 +14,7 @@ const AllBuyers = () => {
         // console.log(product);
         const deleteConfirmation = window.confirm('Do you want to delete the user?');
         if (deleteConfirmation) {
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://used-phone-project-server.vercel.app/users/${email}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

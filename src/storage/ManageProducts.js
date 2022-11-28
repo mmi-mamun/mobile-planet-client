@@ -57,7 +57,7 @@ const ManageProducts = () => {
     }
 
     const handleAd = (phone) => {
-        fetch(`http://localhost:5000/advertise`, {
+        fetch(`https://used-phone-project-server.vercel.app/advertise`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

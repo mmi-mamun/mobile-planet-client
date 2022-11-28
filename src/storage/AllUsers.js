@@ -33,7 +33,7 @@ const AllUsers = () => {
         // console.log(product);
         const deleteConfirmation = window.confirm('Do you want to delete the user?');
         if (deleteConfirmation) {
-            fetch(`http://localhost:5000/users/${email}`, {
+            fetch(`https://used-phone-project-server.vercel.app/users/${email}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
