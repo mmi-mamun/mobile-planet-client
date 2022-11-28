@@ -15,6 +15,21 @@
 ___or___
 `https://mobile-planet-38eb5.firebaseapp.com/`
 
+*Email and password for check this project: :*
+*************************
+~Admin~
+Email: admin@gmail.com
+Password: Admin@22
+
+~Buyer~
+Email: buyer@gmail.com
+Password: Buyer@22
+
+~Seller~
+Email: seller@gmail.com
+Password: Seller@22
+**************************
+
 
 
 ***About this project***
