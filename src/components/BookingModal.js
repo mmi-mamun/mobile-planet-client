@@ -21,12 +21,12 @@ const BookingModal = ({ filPhn, bookPhone, setBookPhone }) => {
         console.log(price, email);
 
         const booking = {
-            Name: name,
+            name: name,
             email: email,
-            Device: itemName,
-            Price: price + ' Taka',
-            Contact: contactNumber,
-            Location: location
+            device: itemName,
+            price: price,
+            contact: contactNumber,
+            location: location
         }
 
         console.log(booking);

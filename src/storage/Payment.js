@@ -7,7 +7,7 @@ import CheckoutForm from './CheckoutForm';
 const Payment = () => {
     const booking = useLoaderData();
     console.log(booking);
-    const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
+    const stripePromise = loadStripe('pk_test_51M8u12KC1Cxv0cZwlTfU5moVz88xCscLRFbxRtRwSyazELAng6HwPFz268xy1bfjdYyPAZFl8omsVokyVnvZy65o00zy7Yhe0X');
     console.log(stripePromise)
     return (
         <div>
@@ -16,7 +16,7 @@ const Payment = () => {
 
             <div className='w-96 my-12 mx-auto'>
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm />
+                    <CheckoutForm booking={booking} />
                 </Elements>
             </div>
         </div>
