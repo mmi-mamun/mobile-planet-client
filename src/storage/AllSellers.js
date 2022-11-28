@@ -4,7 +4,7 @@ const AllSellers = () => {
 
     const [sellers, setSellers] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/users/Seller`)
+        fetch(`https://used-phone-project-server.vercel.app/users/Seller`)
             .then(res => res.json())
             .then(data => setSellers(data))
     }, [sellers])

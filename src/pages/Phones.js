@@ -9,14 +9,14 @@ const Phones = () => {
 
     const [filteredPhones, setFilteredPhones] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${id}`)
+        fetch(`https://used-phone-project-server.vercel.app/category/${id}`)
             .then(res => res.json())
             .then(data => setFilteredPhones(data))
     }, [id])
 
     // const [phones, setPhones] = useState([]);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/allPhones')
+    //     fetch('https://used-phone-project-server.vercel.app/allPhones')
     //         .then(res => res.json())
     //         // .then(data => console.log(data))
     //         .then(data => setPhones(data))
@@ -25,7 +25,7 @@ const Phones = () => {
     // const { data: phones = [] } = useQuery({
     //     queryKey: ['phones'],
     //     queryFn: async () => {
-    //         const res = await fetch('http://localhost:5000/allPhones');
+    //         const res = await fetch('https://used-phone-project-server.vercel.app/allPhones');
     //         const data = await res.json();
     //         return data;
     //     }

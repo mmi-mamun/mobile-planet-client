@@ -11,15 +11,16 @@ const Navbar = () => {
             .catch(err => console.error(err))
     }
     const menuItems = <React.Fragment>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link className='font-semibold' to='/'>Home</Link></li>
+        <li><Link className='font-semibold' to='/dashboard'>Dashboard</Link></li>
+        <li><Link className='font-semibold' to='/blog'>Blog</Link></li>
+        <li><Link className='font-semibold' to='/fourOfour'>404</Link></li>
         {
             user?.uid ?
-                <li><button onClick={handleLogout}>Sign out</button></li> :
+                <li><button className='font-semibold' onClick={handleLogout}>Sign out</button></li> :
                 <>
-                    <li><Link to='/register'>Sign up</Link></li>
-                    <li><Link to='/login'>Login</Link></li>
+                    <li><Link className='font-semibold' to='/register'>Sign up</Link></li>
+                    <li><Link className='font-semibold' to='/login'>Login</Link></li>
                 </>
 
         }

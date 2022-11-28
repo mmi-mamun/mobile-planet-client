@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Phones from "../pages/Phones";
 import Register from "../pages/Register";
 import DisplayError from "../shared/DisplayError";
+import FourOFour from "../shared/FourOFour";
 import AddProduct from "../storage/AddProduct";
 import AllAdmin from "../storage/AllAdmin";
 import AllBuyers from "../storage/AllBuyers";
@@ -43,6 +44,9 @@ export const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Phones></Phones>
+            }, {
+                path: '*',
+                element: <FourOFour></FourOFour>
             }
         ]
     },
@@ -82,7 +86,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://used-phone-project-server.vercel.app/bookings/${params.id}`)
             }
         ]
     }
