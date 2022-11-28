@@ -1,12 +1,17 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
+import LoadSpinner from '../components/LoadSpinner';
 import CheckoutForm from './CheckoutForm';
 
 const Payment = () => {
     const booking = useLoaderData();
     console.log(booking);
+    const navigation = useNavigation();
+    if (navigation.state === "loading") {
+        return <LoadSpinner></LoadSpinner>
+    }
     const stripePromise = loadStripe('pk_test_51M8u12KC1Cxv0cZwlTfU5moVz88xCscLRFbxRtRwSyazELAng6HwPFz268xy1bfjdYyPAZFl8omsVokyVnvZy65o00zy7Yhe0X');
     console.log(stripePromise)
     return (
