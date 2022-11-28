@@ -1,15 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AllSellers = () => {
 
     const [sellers, setSellers] = useState([]);
     useEffect(() => {
-        fetch(`https://used-phone-project-server.vercel.app/users/Seller`)
+        fetch(`http://localhost:5000/users/Seller`)
             .then(res => res.json())
             .then(data => setSellers(data))
     }, [sellers])
     console.log(sellers)
 
+    const handleDeleteUser = (email) => {
+        // console.log(product);
+        const deleteConfirmation = window.confirm('Do you want to delete the user?');
+        if (deleteConfirmation) {
+            fetch(`http://localhost:5000/users/${email}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast.success(`successfully removed...`)
+                        // refetch();
+                    }
+                })
+        }
+
+    }
     return (
         <div>
             <h2 className="text-4xl text-orange-600 text-center my-5">All Sellers</h2>
@@ -23,7 +45,7 @@ const AllSellers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Delete User</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +57,7 @@ const AllSellers = () => {
                                 <td>{user.role}</td>
                                 {/* <td>{user?.role !== 'Admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-primary btn-xs rounded'>Make Admin</button>}</td>
                                 <td><button className='btn btn-danger btn-xs rounded'>Delete User</button></td> */}
+                                <td><button onClick={() => handleDeleteUser(user?.email)} className='btn btn-danger btn-xs rounded'>Delete User</button></td>
                             </tr>)
                         }
 

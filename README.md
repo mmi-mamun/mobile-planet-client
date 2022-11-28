@@ -17,15 +17,15 @@ ___or___
 
 *Email and password for check this project: :*
 *************************
-~Admin~
+_Admin_
 Email: admin@gmail.com
 Password: Admin@22
 
-~Buyer~
+_Buyer_
 Email: buyer@gmail.com
 Password: Buyer@22
 
-~Seller~
+_Seller_
 Email: seller@gmail.com
 Password: Seller@22
 **************************
@@ -50,7 +50,7 @@ This project is for these types of people whom are interested to sell and buying
 *7.Continuously new new features will be added by admin*
 
 ### When user needs to register:
-~~If user wants to be a seller, he has to registered first as a seller~~
+--If user wants to be a seller, he has to registered first as a seller--
 
 
 ### Blog Page
