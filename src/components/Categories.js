@@ -53,6 +53,7 @@ const Categories = () => {
 
     return (
         <div className="mx-5 my-12">
+            <div className="divider">*</div>
             <h3 className="text-center text-3xl text-orange-600 my-5">Categories</h3>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 mx-auto'>
                 {

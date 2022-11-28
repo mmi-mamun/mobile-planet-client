@@ -2,7 +2,9 @@ import React from 'react';
 
 const ExtraSection = () => {
     return (
-        <div>
+        <div className='mt-12'>
+            <div className="divider">*</div>
+            <h3 className="text-3xl text-orange-600 text-center my-16">Extra Section with info by chat box</h3>
             <div className="chat chat-start">
                 <div className="chat-bubble chat-bubble-secondary">Hi, I need some information.</div>
             </div>

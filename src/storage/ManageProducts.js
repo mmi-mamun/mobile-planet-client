@@ -122,7 +122,7 @@ const ManageProducts = () => {
                                     </td>
 
                                     <td>
-                                        <button onClick={() => handleAd(product)} className="btn btn-success btn-xs">Send for advertise</button>
+                                        <button onClick={() => handleAd(product)} className="btn btn-success btn-xs" disabled>Send for advertise</button>
                                     </td>
                                 </tr>)
                         }

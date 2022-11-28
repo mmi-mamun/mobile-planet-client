@@ -64,7 +64,7 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Delete User</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,9 +73,10 @@ const AllUsers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>{user?.role}</td>
                                 <td>{user?.role !== 'Admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-primary btn-xs rounded'>Make Admin</button>}</td>
 
-                                <td><button onClick={() => handleDeleteUser(user?.email)} className='btn btn-danger btn-xs rounded'>Delete User</button></td>
+                                {/* <td><button onClick={() => handleDeleteUser(user?.email)} className='btn btn-danger btn-xs rounded'>Delete User</button></td> */}
                             </tr>)
                         }
 
