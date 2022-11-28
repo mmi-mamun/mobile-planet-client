@@ -9,6 +9,7 @@ const ManageProducts = () => {
 
 
 
+
     const { data: products, isLoading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
@@ -51,6 +52,24 @@ const ManageProducts = () => {
                 if (data.deletedCount > 0) {
                     toast.success(`${product.deviceName} is successfully removed...`)
                     refetch();
+                }
+            })
+    }
+
+    const handleAd = (phone) => {
+        fetch(`http://localhost:5000/advertise`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(phone)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+
+                    toast.success('Product added');
                 }
             })
     }
@@ -103,7 +122,7 @@ const ManageProducts = () => {
                                     </td>
 
                                     <td>
-                                        <button className="btn btn-success btn-xs">Send for advertise</button>
+                                        <button onClick={() => handleAd(product)} className="btn btn-success btn-xs">Send for advertise</button>
                                     </td>
                                 </tr>)
                         }
