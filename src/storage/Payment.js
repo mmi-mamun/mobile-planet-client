@@ -16,8 +16,11 @@ const Payment = () => {
     console.log(stripePromise)
     return (
         <div>
-            <h3 className="text-3xl text-center my-3">Payment for <strong>{booking?.device}</strong></h3>
-            <h5 className="text-2xl text-center my-3">Please pay {booking?.price}</h5>
+            <div className="my-5 mx-auto">
+                <h3 className="text-3xl text-center my-3">Payment for <strong>{booking?.device}</strong></h3>
+                <h5 className="text-2xl text-center my-3">Please pay <strong>{booking?.price}</strong> Taka</h5>
+                <div className="divider"> * </div>
+            </div>
 
             <div className='w-96 my-12 mx-auto'>
                 <Elements stripe={stripePromise}>

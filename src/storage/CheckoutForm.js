@@ -1,5 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ booking }) => {
     const { price, name, email, device, contact, location, _id } = booking;
@@ -9,6 +11,7 @@ const CheckoutForm = ({ booking }) => {
     const [processing, setProcessing] = useState(false);
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate();
 
     const [clientSecret, setClientSecret] = useState("");
 
@@ -95,8 +98,10 @@ const CheckoutForm = ({ booking }) => {
                 .then(data => {
                     console.log(data);
                     if (data.insertedId) {
-                        setSuccess('Congrats! Your payment is completed');
+                        setSuccess('Payment complete');
                         setTransactionId(paymentIntent.id);
+                        toast.success(`'Congrats! Your payment is completed'`)
+                        navigate('/dashboard/my-orders')
                     }
                 })
         }
