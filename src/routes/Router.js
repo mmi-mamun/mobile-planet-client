@@ -45,7 +45,8 @@ export const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Phones></Phones>
-            }, {
+            },
+            {
                 path: '*',
                 element: <FourOFour></FourOFour>
             }
