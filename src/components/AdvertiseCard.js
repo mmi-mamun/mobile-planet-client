@@ -16,7 +16,7 @@ const AdvertiseCard = ({ phone }) => {
                 </div>
             </div>
             <div>
-                <h2 className="card-title">{phone.deviceName}</h2>
+                <h2 className="card-title">{phone.deviceName.slice(0, 12)}</h2>
                 <p className='my-3'>by <strong>{phone.sellerName}</strong></p>
             </div>
         </div>
