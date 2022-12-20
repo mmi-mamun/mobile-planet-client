@@ -17,7 +17,7 @@ const AdvertiseCard = ({ phone }) => {
             </div>
             <div>
                 <h2 className="card-title">{phone.deviceName}</h2>
-                <p>{phone.sellerName}</p>
+                <p className='my-3'>by <strong>{phone.sellerName}</strong></p>
             </div>
         </div>
     );
