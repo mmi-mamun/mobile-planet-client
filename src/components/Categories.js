@@ -55,20 +55,21 @@ const Categories = () => {
         <div className="mx-5 my-12">
             <div className="divider">*</div>
             <h3 className="text-center text-3xl text-orange-600 my-5">Categories</h3>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-5 mx-auto'>
                 {
-                    phoneCategories.map(category => <div key={category.id} className="mx-auto card w-96 bg-base-100 shadow-xl image-full">
-                        <figure><img src={category.img} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="text-xl text-center">{category.name}</h2>
-                            <div className="card-actions justify-center mt-20">
-                                <Link to={`/category/${category.id}`}>
-                                    <button className="btn btn-primary">See All</button>
-                                </Link>
+                    phoneCategories.map(category =>
+                        <div key={category.id} className="mx-auto card w-96 bg-base-100 shadow-xl image-full col-span-1">
+                            <figure><img src={category.img} alt="Shoes" /></figure>
+                            <div className="card-body">
+                                <h2 className="text-xl text-center">{category.name}</h2>
+                                <div className="card-actions justify-center mt-20">
+                                    <Link to={`/category/${category.id}`}>
+                                        <button className="btn btn-primary">See All</button>
+                                    </Link>
 
+                                </div>
                             </div>
-                        </div>
-                    </div>)
+                        </div>)
                 }
             </div>
         </div>
