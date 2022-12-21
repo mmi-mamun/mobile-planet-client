@@ -83,16 +83,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/addProduct',
-                element: <AdminRoute><AddProduct></AddProduct></AdminRoute>
+                element: <AddProduct></AddProduct>
             },
             {
                 path: '/dashboard/my-products',
-                element: <AdminRoute><ManageProducts></ManageProducts></AdminRoute>
+                element: <ManageProducts></ManageProducts>
             },
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`https://used-phone-project-server.vercel.app/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
             }
         ]
     }

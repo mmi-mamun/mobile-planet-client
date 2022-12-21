@@ -10,7 +10,7 @@ const Advertise = () => {
 
     const [filteredPhones, setFilteredPhones] = useState([]);
     useEffect(() => {
-        fetch(`https://used-phone-project-server.vercel.app/advertise`)
+        fetch(`http://localhost:5000/advertise`)
             .then(res => res.json())
             .then(data => setFilteredPhones(data))
     }, [])

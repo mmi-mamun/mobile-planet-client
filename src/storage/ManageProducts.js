@@ -14,7 +14,7 @@ const ManageProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch(`https://used-phone-project-server.vercel.app/products`, {
+                const res = await fetch(`http://localhost:5000/products`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -40,7 +40,7 @@ const ManageProducts = () => {
 
     const handleDeleteProduct = (product) => {
         // console.log(product);
-        fetch(`https://used-phone-project-server.vercel.app/products/${product._id}`, {
+        fetch(`http://localhost:5000/products/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -57,7 +57,7 @@ const ManageProducts = () => {
     }
 
     const handleAd = (phone) => {
-        fetch(`https://used-phone-project-server.vercel.app/advertise`, {
+        fetch(`http://localhost:5000/advertise`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -76,7 +76,7 @@ const ManageProducts = () => {
 
     return (
         <div className='p-5'>
-            <h3 className="text-3xl text-center">My Products: {products?.length}</h3>
+            <h3 className="text-3xl text-center mb-3">Total Products: {products?.length}</h3>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
