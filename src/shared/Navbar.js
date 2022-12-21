@@ -19,7 +19,7 @@ const Navbar = () => {
         {
             user?.uid ?
                 <>
-                    <li><Link className='font-semibold' to='/fourOfour'>404</Link></li>
+                    {/* <li><Link className='font-semibold' to='/fourOfour'>404</Link></li> */}
                     <li><button className='font-semibold' onClick={handleLogout}>Sign out</button></li>
                 </> :
                 <>
