@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllAdmin = () => {
     const [allAdmin, setAllAdmin] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/users/Admin`)
+        fetch(`https://used-phone-project-server.vercel.app/users/Admin`)
             .then(res => res.json())
             .then(data => setAllAdmin(data))
     }, [allAdmin])

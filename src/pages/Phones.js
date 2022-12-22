@@ -9,7 +9,7 @@ const Phones = () => {
 
     const [filteredPhones, setFilteredPhones] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/category/${id}`)
+        fetch(`https://used-phone-project-server.vercel.app/category/${id}`)
             .then(res => res.json())
             .then(data => setFilteredPhones(data))
     }, [id])

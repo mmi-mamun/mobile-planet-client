@@ -14,7 +14,7 @@ const ManageProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/products`, {
+                const res = await fetch(`https://used-phone-project-server.vercel.app/products`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -40,7 +40,7 @@ const ManageProducts = () => {
 
     const handleDeleteProduct = (product) => {
         // console.log(product);
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://used-phone-project-server.vercel.app/products/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -57,7 +57,7 @@ const ManageProducts = () => {
     }
 
     const handleAd = (phone) => {
-        fetch(`http://localhost:5000/advertise`, {
+        fetch(`https://used-phone-project-server.vercel.app/advertise`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
